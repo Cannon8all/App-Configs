@@ -1,0 +1,52 @@
+## ====================================================================
+## GENERAL SETTINGS
+## ====================================================================
+
+# Interface Appearance
+set titlecolor white,black
+set statuscolor white,black
+set scrollercolor black
+set numbercolor white,black
+set indicator
+set linenumbers
+set stateflags
+
+# Functionality & Navigation
+set colonparsing
+set historylog
+set locking
+set mouse
+set nohelp
+
+# Include system-default syntax definitions (Python, Rust, Bash, etc.)
+include "/usr/share/nano/*.nanorc"
+
+
+## ====================================================================
+## SYNTAX HIGHLIGHTING: KDL
+## ====================================================================
+syntax "kdl" "\.kdl$"
+
+# Default text color (White)
+color white "^.+$"
+
+# Nodes and properties (Keywords - Yellow)
+color yellow "\<[a-zA-Z0-9_-]+\>"
+
+# Strings (Green)
+color green ""([^"]|\\")*""
+color green "'[^']*'"
+
+# Numbers and Booleans (Magenta)
+color magenta "\<[0-9]+(\.[0-9]+)?\>"
+color magenta "\<(true|false|null)\>"
+
+# Brackets, braces, and assignments (Cyan)
+color cyan "[{}[\]()=]"
+
+# Regular comments (Blue)
+color blue "//.*"
+color blue start="/\*" end="\*/"
+
+# KDL specific 'slashdash' node comments (Bright Red)
+color brightred "/-"
